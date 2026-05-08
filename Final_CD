@@ -1,0 +1,122 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string transition(string state, char input)
+{
+
+    if(state == "A")
+    {
+        if(input == 'a') return "B";
+    }
+
+
+    else if(state == "B")
+    {
+        if(input == 'a') return "C";
+        if(input == 'b') return "D";
+    }
+
+
+    else if(state == "C")
+    {
+        if(input == 'a') return "F";
+        if(input == 'b') return "F";
+    }
+
+
+    else if(state == "D")
+    {
+        if(input == 'a') return "D"; // self loop
+        if(input == 'b') return "F";
+    }
+
+
+    else if(state == "E")
+    {
+        if(input == 'a') return "I";
+        if(input == 'b') return "F";
+    }
+
+
+    else if(state == "F")
+    {
+        if(input == 'a') return "F"; // self loop
+        if(input == 'b') return "J";
+    }
+
+
+    else if(state == "G")
+    {
+        if(input == 'a') return "F";
+        if(input == 'b') return "F";
+    }
+
+
+    else if(state == "H")
+    {
+        if(input == 'a') return "F";
+        if(input == 'b') return "F";
+    }
+
+    I
+    else if(state == "I")
+    {
+        if(input == 'a') return "F";
+        if(input == 'b') return "I"; // self loop
+    }
+
+
+    else if(state == "J")
+    {
+        if(input == 'a') return "F";
+        if(input == 'b') return "F";
+    }
+
+
+    else if(state == "K")
+    {
+        if(input == 'a') return "F";
+    }
+
+    return "INVALID";
+}
+
+int main()
+{
+    string input;
+
+    cout << "Enter input string: ";
+    cin >> input;
+
+    string currentState = "A";
+
+    for(char ch : input)
+    {
+        currentState = transition(currentState, ch);
+
+        if(currentState == "INVALID")
+        {
+            cout << "Invalid String" << endl;
+            return 0;
+        }
+    }
+
+
+    if(currentState == "B" ||
+       currentState == "C" ||
+       currentState == "D" ||
+       currentState == "E" ||
+       currentState == "G" ||
+       currentState == "I" ||
+       currentState == "J")
+    {
+        cout << "String Accepted" << endl;
+    }
+    else
+    {
+        cout << "String Rejected" << endl;
+    }
+
+    return 0;
+}
