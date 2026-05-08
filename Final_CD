@@ -27,7 +27,7 @@ string transition(string state, char input)
 
     else if(state == "D")
     {
-        if(input == 'a') return "D"; // self loop
+        if(input == 'a') return "D"; 
         if(input == 'b') return "F";
     }
 
@@ -41,7 +41,7 @@ string transition(string state, char input)
 
     else if(state == "F")
     {
-        if(input == 'a') return "F"; // self loop
+        if(input == 'a') return "F"; 
         if(input == 'b') return "J";
     }
 
@@ -63,7 +63,7 @@ string transition(string state, char input)
     else if(state == "I")
     {
         if(input == 'a') return "F";
-        if(input == 'b') return "I"; // self loop
+        if(input == 'b') return "I"; 
     }
 
 
